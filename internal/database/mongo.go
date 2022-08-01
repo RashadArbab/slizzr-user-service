@@ -69,6 +69,9 @@ func (mongo *Mongo) GetMultipleUser(ids []string) ([]*MongoUser, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer func() {
+		cursor.Close(context.Background())
+	}()
 	var output []*MongoUser
 	for cursor.Next(context.Background()) {
 		var temp *MongoUser
