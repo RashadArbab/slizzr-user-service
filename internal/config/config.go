@@ -13,8 +13,8 @@ func NewFromEnvironment() (Config, error) {
 	}
 	return Config{
 		Server: Server{
-			Port:    os.Getenv("APP_PORT"),
-			SiteURL: fmt.Sprintf("%s:%s", os.Getenv("APP_URL"), os.Getenv("APP_PORT")),
+			Port:    os.Getenv("PORT"),
+			SiteURL: fmt.Sprintf("%s:%s", os.Getenv("APP_URL"), os.Getenv("PORT")),
 		},
 		MongoConfig: mongo,
 	}, nil
